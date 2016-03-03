@@ -3,6 +3,8 @@ TODO - Update your name in this readme.
 
 TODO - Add a badge from travis CI here
 
+[![Build Status](https://travis-ci.com/csc340-03-spring-2016/csc340-03-hw3-KimberlyMcIver.svg?token=NsxZd6faShwqYRSZhssy&branch=master)](https://travis-ci.com/csc340-03-spring-2016/csc340-03-hw3-KimberlyMcIver)
+
 ##Problem statement:
 
 Design and implement an ADT that represents a triangle. The data for the ADT must include the three sides of the triangle. This data must be in the private section of the class that implements the ADT.
