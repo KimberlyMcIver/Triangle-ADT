@@ -17,11 +17,11 @@ using namespace std;
 
 // class Triangle {
 //Attributes: side1, side2, side3 - modeled in variables
-//Capabilities: perimeter, area, right angle, equilateral, isosolecs - modeled in functions/methods
+//Capabilities: perimeter, area, right angle, equilateral, isosceles - modeled in functions/methods
 
 template<class itemType> // Indicates this is a template definition
 
-// START OF DECLARATION for class Triangle
+// START OF  for class Triangle
 class Triangle :public triangleInterface<itemType> {
 private:
     // Data field
@@ -61,15 +61,15 @@ public:
     std::vector<itemType> getSides();
 
     itemType getPerimeter() {return Perimeter;}
-    //void setPerimeter() {Perimeter = side1 + side2 + side3;}
+    void setPerimeter() {Perimeter = side1 + side2 + side3;}
 
     itemType getArea() {return Area;}
-    //void setArea() {Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));}
+    void setArea() {Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));}
 
     //virtual itemType getArea() = 0;
 
      //bool isRightTriangle() {return true;}
-    // check by saying if any side = 90 degrees, then return true.
+    //
 
     bool isRightTriangle(itemType side1, itemType side2, itemType side3)
     {
@@ -118,6 +118,11 @@ Triangle<itemType>::Triangle() {
 
 template<class itemType>
 Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2 , itemType newSide3){
+    newSide1 = side1;
+    newSide2 = side2;
+    newSide3 = side3;
+
+
     // TODO - DO STUFF HERE FOR CONSTRUCTOR
 } //end of new constructor
 
@@ -159,12 +164,12 @@ template<class itemType>
     return Area();
     } // end getArea
 
-//template<class itemType>
-//void Triangle<itemType>::setArea(itemType side1, itemType side2, itemType side3) {
-    //Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));
+template<class itemType>
+void Triangle<itemType>::setArea(itemType side1, itemType side2, itemType side3) {
+    Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));
 
 //TODO set stuff here for Area return setArea();
-//}
+}
 
 template<class itemType>
     itemType Triangle<itemType>::getPerimeter() {
@@ -172,12 +177,12 @@ template<class itemType>
     return Perimeter();
     } // end getPerimeter
 
-//template<class itemType>
-    //itemType Triangle<itemType>::setPerimeter(){
-    //Perimeter = side1 + side2 + side3;
+ template<class itemType>
+itemType Triangle<itemType>::setPerimeter(){
+Perimeter = side1 + side2 + side3;
 
 
-//}
+}
 
 
 
