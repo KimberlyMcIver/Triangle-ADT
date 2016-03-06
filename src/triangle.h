@@ -26,9 +26,9 @@ class Triangle :public triangleInterface<itemType> {
 private:
     // Data field
 
-    itemType side1;
-    itemType side2;
-    itemType side3;
+    itemType side1 = 1;
+    itemType side2 = 1;
+    itemType side3 = 1;
 
     itemType Perimeter; //not sure about these
     itemType Area;// same
@@ -42,15 +42,18 @@ public:
     Triangle();
 
     //Parametrized constructor
-    Triangle(itemType newSide1, itemType newSide2 , itemType newSide3);
-
+    Triangle(itemType newSide1, itemType newSide2 , itemType newSide3) {
+        side1 = newSide1;
+        side2 = newSide2;
+        side3 = newSide3;
+    }
     //Mutation method that can change the value of the data field
         //virtual void setSides(const itemType newSide1, itemType newSide2, itemType newSide3) = 0;
     void setSides(itemType newSide1, itemType newSide2, itemType newSide3){
 
-         newSide1 = side1;
-         newSide2 = side2;
-         newSide3 = side3;
+       cout << "Enter the 3 sides of a triangle: ";
+       cin >> side1 >> side2 >> side3;
+
     }
 
     //Accessor method to get the value of the data field
@@ -61,10 +64,10 @@ public:
     std::vector<itemType> getSides();
 
     itemType getPerimeter() {return Perimeter;}
-    void setPerimeter() {Perimeter = side1 + side2 + side3;}
+    //void setPerimeter() {Perimeter = side1 + side2 + side3;}
 
     itemType getArea() {return Area;}
-    void setArea() {Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));}
+    //void setArea() {Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));}
 
     //virtual itemType getArea() = 0;
 
@@ -123,7 +126,7 @@ Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2 , itemType new
     newSide3 = side3;
 
 
-    // TODO - DO STUFF HERE FOR CONSTRUCTOR
+
 } //end of new constructor
 
 //template<class itemType>
@@ -134,11 +137,11 @@ Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2 , itemType new
 
 template<class itemType>
 void Triangle<itemType>::setSides(itemType newSide1, itemType newSide2, itemType newSide3) {
-    newSide1 = side1;
-    newSide2 = side2;
-    newSide3 = side3;
+     newSide1 = side1;
+     newSide2 = side2;
+    newSide3= side3;
 
-    // TODO - DO STUFF HERE FOR SETSIDES
+
 } // end of new setSides
 
 //template <class itemType>
@@ -152,7 +155,7 @@ template<class itemType>
 
 template <class itemType>
 vector<itemType>Triangle<itemType>::getSides() {
-    return getSides();
+    return side1, side2, side3;
     } // end getSides
 
 
@@ -164,12 +167,12 @@ template<class itemType>
     return Area();
     } // end getArea
 
-template<class itemType>
-void Triangle<itemType>::setArea(itemType side1, itemType side2, itemType side3) {
-    Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));
+//template<class itemType>
+//void Triangle<itemType>::setArea(itemType side1, itemType side2, itemType side3) {
+    //Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));
 
-//TODO set stuff here for Area return setArea();
-}
+//
+//}
 
 template<class itemType>
     itemType Triangle<itemType>::getPerimeter() {
@@ -177,12 +180,12 @@ template<class itemType>
     return Perimeter();
     } // end getPerimeter
 
- template<class itemType>
-itemType Triangle<itemType>::setPerimeter(){
-Perimeter = side1 + side2 + side3;
+ //template<class itemType>
+//itemType Triangle<itemType>::setPerimeter(){
+//Perimeter = side1 + side2 + side3;
 
 
-}
+//}
 
 
 
