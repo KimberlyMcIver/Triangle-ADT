@@ -21,7 +21,7 @@ using namespace std;
 
 template<class itemType> // Indicates this is a template definition
 
-// START OF  for class Triangle
+// START OF PROTOTYPES for class Triangle
 class Triangle :public triangleInterface<itemType> {
 private:
     // Data field
@@ -42,19 +42,19 @@ public:
     Triangle();
 
     //Parametrized constructor
-    Triangle(itemType newSide1, itemType newSide2 , itemType newSide3) {
-        side1 = newSide1;
-        side2 = newSide2;
-        side3 = newSide3;
-    }
+    Triangle(itemType newSide1, itemType newSide2 , itemType newSide3); //{
+        //side1 = newSide1;
+        //side2 = newSide2;
+        //side3 = newSide3;
+    //}
     //Mutation method that can change the value of the data field
         //virtual void setSides(const itemType newSide1, itemType newSide2, itemType newSide3) = 0;
-    void setSides(itemType newSide1, itemType newSide2, itemType newSide3){
+    void setSides(itemType newSide1, itemType newSide2, itemType newSide3); //{
 
-       cout << "Enter the 3 sides of a triangle: ";
-       cin >> side1 >> side2 >> side3;
+       //cout << "Enter the 3 sides of a triangle: ";
+       //cin >> side1 >> side2 >> side3;
 
-    }
+    //}
 
     //Accessor method to get the value of the data field
     //virtual void getSides() = 0;
@@ -74,36 +74,36 @@ public:
      //bool isRightTriangle() {return true;}
     //
 
-    bool isRightTriangle(itemType side1, itemType side2, itemType side3)
-    {
-       if (side3 == (side2 + side1))
-           return true;
+    bool isRightTriangle(itemType side1, itemType side2, itemType side3);
+    //{
+      // if (side3 == (side2 + side1))
+        //   return true;
 
-    }
+    //}
 
      //bool isEquilateral() {return true;}
     //check by saying if side1 = side2 = side3, then return true.
-    bool isEquilateral(itemType side1, itemType side2, itemType side3)
-     {
-         if (side1 == side2 == side3)
+    bool isEquilateral(itemType side1, itemType side2, itemType side3);
+     //{
+       //  if (side1 == side2 == side3)
 
-        return true;
-     }
+        //return true;
+     //}
 
 
 
     //bool isIsosceles() {return true;}
     // check by saying if side1 = side2 or side3 = side1 or side3 = side2, then return true.
-    bool isIsosceles(itemType side1, itemType side2, itemType side3)
-    {
-        if (side1 == side2 || side2 == side3 || side1 == side3)
-            return true;
-    }
+    bool isIsosceles(itemType side1, itemType side2, itemType side3);
+    //{
+      //  if (side1 == side2 || side2 == side3 || side1 == side3)
+        //    return true;
+    //}
 
 }; // end Triangle
 
 
-//START OF
+//START OF DEFINITNG
 
 template<class itemType>
 Triangle<itemType>::Triangle() {
@@ -121,9 +121,9 @@ Triangle<itemType>::Triangle() {
 
 template<class itemType>
 Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2 , itemType newSide3){
-    newSide1 = side1;
-    newSide2 = side2;
-    newSide3 = side3;
+    side1 = newSide1;
+    side2 = newSide2;
+    side3 = newSide3;
 
 
 
@@ -137,9 +137,9 @@ Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2 , itemType new
 
 template<class itemType>
 void Triangle<itemType>::setSides(itemType newSide1, itemType newSide2, itemType newSide3) {
-     newSide1 = side1;
-     newSide2 = side2;
-    newSide3= side3;
+    side1 = newSide1;
+    side2 = newSide2;
+    side3 = newSide3;
 
 
 } // end of new setSides
@@ -150,11 +150,16 @@ void Triangle<itemType>::setSides(itemType newSide1, itemType newSide2, itemType
 
 //} // end setSides
 
-template<class itemType>
+//template<class itemType>
 
 
 template <class itemType>
 vector<itemType>Triangle<itemType>::getSides() {
+    vector<itemType> v;
+    v.push_back(side1);
+    v.push_back(side2);
+    v.push_back(side3);
+
     return side1, side2, side3;
     } // end getSides
 
@@ -186,7 +191,29 @@ template<class itemType>
 
 
 //}
+template<class itemType>
+bool Triangle<itemType>::isRightTriangle(itemType side1, itemType side2, itemType side3)
+{
+ if (side3 == (side2 + side1) || side2 == (side3 + side1) || side1 == (side2 + side3))
+   return true;
+return false;
+}
 
+template<class itemType>
+bool Triangle<itemType>::isEquilateral(itemType side1, itemType side2, itemType side3){
+    if (side1 == side2 == side3)
+        return true;
+    return false;
+
+
+}
+
+template<class itemType>
+bool Triangle<itemType>::isIsosceles(itemType side1, itemType side2, itemType side3){
+    if (side1 == side2 || side2 == side3 || side1 == side3)
+      return true;
+    return false;
+}
 
 
 
