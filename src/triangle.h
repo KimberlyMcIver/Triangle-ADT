@@ -30,9 +30,9 @@ private:
     itemType side2;
     itemType side3;
 
-    itemType Perimeter; //not sure about these
+    itemType Perimeter;
     itemType Area;
-    // same
+
     itemType s;
 
 
@@ -42,62 +42,24 @@ public:
 
     //Parametrized constructor
     Triangle(itemType newSide1, itemType newSide2, itemType newSide3); //{
-    //side1 = newSide1;
-    //side2 = newSide2;
-    //side3 = newSide3;
-    //}
-    //Mutation method that can change the value of the data field
-    //virtual void setSides(const itemType newSide1, itemType newSide2, itemType newSide3) = 0;
+
     void setSides(itemType newSide1, itemType newSide2, itemType newSide3); //{
 
-    //cout << "Enter the 3 sides of a triangle: ";
-    //cin >> side1 >> side2 >> side3;
+    std::vector<itemType> getSides() const;
 
-    //}
+    itemType getPerimeter() const;
 
-    //Accessor method to get the value of the data field
-    //virtual void getSides() = 0;
-    //itemType getSide1() {return side1;}
-    //itemType getSide2() {return side2;}
-    //itemType getSide3() {return side3;}
-    std::vector<itemType> getSides();
+    itemType getArea() const;
 
-    itemType getPerimeter() { return Perimeter; }
-    //void setPerimeter() {Perimeter = side1 + side2 + side3;}
+    bool isRightTriangle() const;
 
-    itemType getArea() { return Area; }
-    //void setArea() {Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));}
-
-    //virtual itemType getArea() = 0;
-
-    //bool isRightTriangle() {return true;}
-    //
-
-    bool isRightTriangle(itemType side1, itemType side2, itemType side3);
-    //{
-    // if (side3 == (side2 + side1))
-    //   return true;
-
-    //}
-
-    //bool isEquilateral() {return true;}
     //check by saying if side1 = side2 = side3, then return true.
-    bool isEquilateral(itemType side1, itemType side2, itemType side3);
-    //{
-    //  if (side1 == side2 == side3)
-
-    //return true;
-    //}
+    bool isEquilateral() const;
 
 
-
-    //bool isIsosceles() {return true;}
     // check by saying if side1 = side2 or side3 = side1 or side3 = side2, then return true.
-    bool isIsosceles(itemType side1, itemType side2, itemType side3);
-    //{
-    //  if (side1 == side2 || side2 == side3 || side1 == side3)
-    //    return true;
-    //}
+    bool isIsosceles() const;
+
 
 }; // end Triangle
 
@@ -109,15 +71,11 @@ Triangle<itemType>::Triangle() {
     side1 = 1;
     side2 = 1;
     side3 = 1;
-    s = (side1 + side2 + side3) / 2;
+    s = (side1 + side2 + side3)/ 2;
 } // end of new default constructor
 
-//template<class itemType>
-//Triangle<itemType>::Triangle() {
-//side1 = 1;
-//side2 = 1;
-//side3 = 1;
-//} // end default constructor
+
+
 
 template<class itemType>
 Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2, itemType newSide3) {
@@ -129,12 +87,6 @@ Triangle<itemType>::Triangle(itemType newSide1, itemType newSide2, itemType newS
 
 } //end of new constructor
 
-//template<class itemType>
-//Triangle<itemType>::Triangle(const itemType & theItem) {
-
-
-//} // end constructor
-
 template<class itemType>
 void Triangle<itemType>::setSides(itemType newSide1, itemType newSide2, itemType newSide3) {
     side1 = newSide1;
@@ -142,19 +94,10 @@ void Triangle<itemType>::setSides(itemType newSide1, itemType newSide2, itemType
     side3 = newSide3;
 
 
-} // end of new setSides
-
-//template <class itemType>
-//void Triangle<itemType>::setSides(itemType side1, itemType side2, itemType side3) {
-
-
-//} // end setSides
-
-//template<class itemType>
-
+}
 
 template<class itemType>
-vector<itemType> Triangle<itemType>::getSides() {
+vector<itemType> Triangle<itemType>::getSides() const {
     vector<itemType> v;
     v.push_back(side1);
     v.push_back(side2);
@@ -167,64 +110,53 @@ vector<itemType> Triangle<itemType>::getSides() {
 
 
 template<class itemType>
-itemType Triangle<itemType>::getArea() {
-    /*
-    Area() = sqrt(s * (s - side1) * (s - side2) * (s - side3));
-    return Area();
-     */
-    itemType something;
-    return something;
-} // end getArea
+itemType Triangle<itemType>::getArea() const {
+    itemType Area;
 
-//template<class itemType>
-//void Triangle<itemType>::setArea(itemType side1, itemType side2, itemType side3) {
-//Area = sqrt(s * (s-side1) * (s - side2) * (s - side3));
 
-//
-//}
+    Area = sqrt(s*(s-side1)*(s-side2)*(s-side3));
+    return Area;
+
+
+}
+
 
 template<class itemType>
-itemType Triangle<itemType>::getPerimeter() {
-    /*Perimeter() = side1 + side2 + side3;
-    return Perimeter();
-     */
-    itemType something;
-    return something;
+itemType Triangle<itemType>::getPerimeter() const {
+    itemType Perimeter;
+    Perimeter = (side1 + side2 + side3);
+    return Perimeter;
+
+
 } // end getPerimeter
 
-//template<class itemType>
-//itemType Triangle<itemType>::setPerimeter(){
-//Perimeter = side1 + side2 + side3;
-
-
-//}
-template<class itemType>
-bool Triangle<itemType>::isRightTriangle(itemType side1, itemType side2, itemType side3) {
-    /*if (side3 == (side2 + side1) || side2 == (side3 + side1) || side1 == (side2 + side3))
-        return true;
-    return false;
-     */
-    return true;
-}
 
 template<class itemType>
-bool Triangle<itemType>::isEquilateral(itemType side1, itemType side2, itemType side3) {
-    /*if (side1 == side2 == side3)
+bool Triangle<itemType>::isRightTriangle() const {
+    if ((side3 * side3) == ((side2 * side2) + (side1 * side1)) || ((side2 * side2) == ((side3 * side3) + (side1 * side1))) || (side1 * side1) == ((side2 * side2) + (side3 * side3)))
         return true;
     return false;
-     */
-    return true;
 
 
 }
 
 template<class itemType>
-bool Triangle<itemType>::isIsosceles(itemType side1, itemType side2, itemType side3) {
-    /*if (side1 == side2 || side2 == side3 || side1 == side3)
+bool Triangle<itemType>::isEquilateral() const {
+    if ((side1 == side2) && (side1 == side3))
         return true;
     return false;
-     */
-    return true;
+
+
+
+}
+
+template<class itemType>
+bool Triangle<itemType>::isIsosceles()  const {
+    if (((side1 == side2) && (side1 != side3)) || ((side1 == side3) && (side1 != side2)) || ((side2 == side3) && (side2 !=side1)))
+        return true;
+
+
+
 }
 
 
