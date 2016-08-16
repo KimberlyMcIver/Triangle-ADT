@@ -10,31 +10,19 @@
 #include <iostream>
 #include "triangle_interface.h"
 
-
 using namespace std;
 
-//typedef float itemType; //continue fix if doesn't work
-
-// class Triangle {
-//Attributes: side1, side2, side3 - modeled in variables
-//Capabilities: perimeter, area, right angle, equilateral, isosceles - modeled in functions/methods
-
-template<class itemType> // Indicates this is a template definition
-
-// START OF PROTOTYPES for class Triangle
+template<class itemType>
 class Triangle : public triangleInterface<itemType> {
 private:
-    // Data fields
-
     itemType side1;
     itemType side2;
     itemType side3;
 
 public:
-    // Default Constructor
+
     Triangle();
 
-    //Parametrized constructor
     Triangle(itemType newSide1, itemType newSide2, itemType newSide3);
 
     void setSides(itemType newSide1, itemType newSide2, itemType newSide3);
@@ -47,18 +35,12 @@ public:
 
     bool isRightTriangle() const;
 
-    //check by saying if side1 = side2 = side3, then return true.
     bool isEquilateral() const;
 
-
-    // check by saying if side1 = side2 or side3 = side1 or side3 = side2, then return true.
     bool isIsosceles() const;
 
 
 }; // end Triangle Prototypes
-
-
-//---------------------------------------------- START OF DEFINING FN'S ------------------------------------------------
 
 // this function below sets up the triangle object :)
 template<class itemType>
@@ -68,8 +50,6 @@ Triangle<itemType>::Triangle() {
     side3 = 1;
 
 } // end of new default constructor
-
-
 
 // this function below sets the parameters for the constructor
 template<class itemType>
@@ -146,8 +126,5 @@ bool Triangle<itemType>::isIsosceles()  const {
     return false;
 
 } // end isIsosceles
-
-
-
 
 #endif //HW3_TRIANGLE_H
