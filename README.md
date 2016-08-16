@@ -1,5 +1,4 @@
-#HW3 Kimberly McIver
-
+Triangle ADT
 
 [![Build Status](https://travis-ci.com/csc340-03-spring-2016/csc340-03-hw3-KimberlyMcIver.svg?token=NsxZd6faShwqYRSZhssy&branch=master)](https://travis-ci.com/csc340-03-spring-2016/csc340-03-hw3-KimberlyMcIver)
 
